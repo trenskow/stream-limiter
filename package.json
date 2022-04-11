@@ -1,6 +1,6 @@
 {
   "name": "@trenskow/stream-limiter",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A small library for cap limiting streams.",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/trenskow/stream-limiter#readme",
   "devDependencies": {
-    "eslint": "^8.2.0"
+    "eslint": "^8.13.0"
   }
 }
