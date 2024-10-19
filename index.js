@@ -1,9 +1,6 @@
-'use strict';
+import { Transform } from 'stream';
 
-const
-	{ Transform } = require('stream');
-
-exports = module.exports = class Limiter extends Transform {
+export default class Limiter extends Transform {
 
 	constructor(limit, options = {}) {
 		super();
