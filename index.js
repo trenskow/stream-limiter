@@ -16,7 +16,7 @@ export default class Limiter extends Transform {
 
 	_transform(chunk, encoding, done) {
 
-		if (typeof chunk === 'string') this._length += Buffer.from(chunk, 'utf8');
+		if (typeof chunk === 'string') this._length += Buffer.from(chunk, encoding).length;
 		else this._length += chunk.length;
 
 		if (this._length > this._limit) {
