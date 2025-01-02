@@ -1,11 +1,22 @@
+//
+// index.js
+// @trenskow/app-express
+//
+// Created by Kristian Trenskow on 2020/12/26
+// For license see LICENSE.
+//
+
 import { Transform } from 'stream';
+
+import { bytes } from '@trenskow/units';
 
 export default class Limiter extends Transform {
 
 	constructor(limit, options = {}) {
 		super();
 
-		if (typeof limit !== 'number') throw new SyntaxError('Limit must be a number.');
+		if (typeof limit === 'string') limit = bytes(limit);
+		if (typeof limit !== 'number') throw new SyntaxError('Limit must be a number or string.');
 
 		this._length = 0;
 
@@ -16,13 +27,11 @@ export default class Limiter extends Transform {
 
 	_transform(chunk, encoding, done) {
 
-		if (typeof chunk === 'string') this._length += Buffer.from(chunk, encoding).length;
-		else this._length += chunk.length;
+		this._length += typeof chunk === 'string' ? Buffer.from(chunk, encoding).length : chunk.length;
 
 		if (this._length > this._limit) {
-			done(this._options.errorGenerator ? this._options.errorGenerator() : new Error(`Stream reached its limit of ${this._limit} bytes.`));
+			done(this._options?.errorFactory() || new Error(`Stream reached its limit of ${this._limit} bytes.`));
 		} else {
-			this.push(chunk, encoding);
 			done();
 		}
 
