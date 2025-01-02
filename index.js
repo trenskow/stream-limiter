@@ -32,7 +32,7 @@ export default class Limiter extends Transform {
 		if (this._length > this._limit) {
 			done(this._options?.errorFactory() || new Error(`Stream reached its limit of ${this._limit} bytes.`));
 		} else {
-			done();
+			done(null, chunk, encoding);
 		}
 
 	}
