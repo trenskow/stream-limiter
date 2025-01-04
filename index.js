@@ -30,7 +30,7 @@ export default class Limiter extends Transform {
 		this._length += typeof chunk === 'string' ? Buffer.from(chunk, encoding).length : chunk.length;
 
 		if (this._length > this._limit) {
-			done(this._options?.errorFactory() || new Error(`Stream reached its limit of ${this._limit} bytes.`));
+			done(this._options?.errorFactory?.() || new Error(`Stream reached its limit of ${this._limit} bytes.`));
 		} else {
 			done(null, chunk, encoding);
 		}
