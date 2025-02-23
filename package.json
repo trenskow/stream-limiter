@@ -26,9 +26,9 @@
 		"@eslint/eslintrc": "^3.3.0",
 		"@eslint/js": "^9.13.0",
 		"eslint": "^9.21.0",
-		"globals": "^15.15.0"
+		"globals": "^16.0.0"
 	},
 	"dependencies": {
-		"@trenskow/units": "^0.2.20"
+		"@trenskow/units": "^0.2.21"
 	}
 }
