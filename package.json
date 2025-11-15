@@ -1,6 +1,6 @@
 {
 	"name": "@trenskow/stream-limiter",
-	"version": "0.3.23",
+	"version": "0.3.24",
 	"description": "A small library for cap limiting streams.",
 	"main": "index.js",
 	"type": "module",
