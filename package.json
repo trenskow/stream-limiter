@@ -29,6 +29,6 @@
 		"globals": "^17.7.0"
 	},
 	"dependencies": {
-		"@trenskow/units": "^0.2.58"
+		"@trenskow/units": "^0.2.59"
 	}
 }
